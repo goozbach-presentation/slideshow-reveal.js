@@ -38,6 +38,15 @@
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+    <!-- my custom stuff -->
+    <link rel="stylesheet" href="custom.css">
   </head>
 
   <body>
@@ -47,6 +56,18 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="reveal">
         <div class="slides">
+          <section>
+            <h1><%= @headers['title'] %></h1>
+            <h2><%= @headers['subtitle'] %></h2>
+            <h3><%= @headers['author']%></h3>
+            <h4><%= @headers['company']%></h4>
+          </section>
+
+          <section>
+            <!-- contact -->
+            <%= IO.read("#{@pakdir}/contact.html") %>
+          </section>
+
           <% @slides.each do |slide| %>
             <% if slide.classes.include?("down-open") %>
               <section class="<%= slide.classes %>">
@@ -58,6 +79,19 @@
               </section>
             <% end %>
           <% end %>
+          <section>
+            <h2>Thank You!</h2>
+            <div class="ym-info">
+              More information can be found at:
+              <br />
+              <a class="ym-button ym-next" href="http://presentation.goozbach.com/">http://presentation.goozbach.com/</a>
+              <br />
+              <br />
+              Contact Derek at:
+              <br />
+              <a class="ym-button ym-email" href="http://goozbach.com/contact/">http://goozbach.com/contact/</a>
+            </div>
+          </section>
         </div>
       </div>
     </div>
