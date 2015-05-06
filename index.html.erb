@@ -17,12 +17,6 @@
     <!-- bootstrap -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-
-    <!-- my custom stuff -->
-    <link rel="stylesheet" href="custom.css">
-
     <!-- stock stuff -->
     <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
     <% if @headers['theme'] =~ /theme not found/ %>
@@ -48,6 +42,12 @@
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
+
+    <!-- my custom stuff -->
+    <link rel="stylesheet" href="custom.css">
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
   </head>
 
@@ -103,17 +103,14 @@
      // Full list of configuration options available here:
      // https://github.com/hakimel/reveal.js#configuration
      Reveal.initialize({
-       controls: true,
-       progress: true,
+       controls: false,
+       progress: false,
        history: true,
        center: true,
+       transition: 'none',
+       backgroundTransition: 'none', 
 
        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-       transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-       // Parallax scrolling
-       // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-       // parallaxBackgroundSize: '2100px 900px',
 
        // Optional libraries used to extend on reveal.js
        dependencies: [
