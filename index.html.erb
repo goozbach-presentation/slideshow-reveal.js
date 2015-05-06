@@ -14,6 +14,16 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+    <!-- my custom stuff -->
+    <link rel="stylesheet" href="custom.css">
+
+    <!-- stock stuff -->
     <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
     <% if @headers['theme'] =~ /theme not found/ %>
       <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
@@ -39,19 +49,9 @@
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-
-    <!-- my custom stuff -->
-    <link rel="stylesheet" href="custom.css">
   </head>
 
   <body>
-
-    <div class="reveal">
 
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="reveal">
@@ -69,12 +69,12 @@
           </section>
 
           <% @slides.each do |slide| %>
-            <% if slide.classes.include?("down-open") %>
+            <% if slide.classes.to_s.include?("down-open") %>
               <section class="<%= slide.classes %>">
-                <% elsif slide.classes.include?("down-close") %>
+                <% elsif slide.classes.to_s.include?("down-close") %>
               </section>
             <% else %>
-              <section "<%= slide.classes %>">
+              <section <%= slide.classes %>>
                 <%= slide.content %>
               </section>
             <% end %>
@@ -128,5 +128,7 @@
 
     </script>
 
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
